@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "email-marketing-platform"
+version = "0.1.0"
+description = ""
+authors = ["Sergunin Vitaliy <sergunin_v@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5.2.7"
+psycopg2-binary = "^2.9.11"
+python-decouple = "^3.8"
+django-crispy-forms = "^2.4"
+crispy-bootstrap5 = "^2025.6"
+flake8 = "^7.3.0"
+black = "^25.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,20 @@
+{% extends 'mailings/base.html' %}
+
+{% block title %}Добавить сообщение{% endblock %}
+
+{% block content %}
+<h1>Добавить сообщение</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_subject" class="form-label">Тема письма</label>
+        {{ form.subject }}
+    </div>
+    <div class="mb-3">
+        <label for="id_body" class="form-label">Тело письма</label>
+        {{ form.body }}
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="{% url 'message_list' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'mailings/base.html' %}
+
+{% block title %}Добавить рассылку{% endblock %}
+
+{% block content %}
+<h1>Добавить рассылку</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_start_time" class="form-label">Время начала</label>
+        {{ form.start_time }}
+    </div>
+    <div class="mb-3">
+        <label for="id_end_time" class="form-label">Время окончания</label>
+        {{ form.end_time }}
+    </div>
+    <div class="mb-3">
+        <label for="id_status" class="form-label">Статус</label>
+        {{ form.status }}
+    </div>
+    <div class="mb-3">
+        <label for="id_message" class="form-label">Сообщение</label>
+        {{ form.message }}
+    </div>
+    <div class="mb-3">
+        <label for="id_recipients" class="form-label">Получатели</label>
+        {{ form.recipients }}
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="{% url 'mailing_list' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

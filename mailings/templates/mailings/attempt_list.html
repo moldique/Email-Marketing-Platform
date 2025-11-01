@@ -4,7 +4,6 @@
 
 {% block content %}
 <h1>Попытки рассылки</h1>
-<a href="{% url 'attempt_create' %}" class="btn btn-primary">Добавить попытку</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -23,7 +22,6 @@
                 <td>{{ attempt.server_response|truncatewords:5 }}</td>
                 <td>{{ attempt.mailing.message.subject }}</td>
                 <td>
-                    <a href="{% url 'attempt_update' attempt.pk %}" class="btn btn-sm btn-outline-primary">Редактировать</a>
                     <a href="{% url 'attempt_delete' attempt.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
                 </td>
             </tr>

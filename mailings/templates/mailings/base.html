@@ -30,6 +30,14 @@
             background-color: #2c0a0a;
             color: #f8f9fa;
         }
+
+        .table tbody tr td {
+            color: #f8f9fa !important;
+        }
+
+        .table-striped > tbody > tr > td {
+            color: #f8f9fa !important;
+        }
         
         .table thead th {
             background-color: #8b0000;
@@ -67,11 +75,12 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Email Marketing</a>
             <div class="navbar-nav">
+                <a class="navbar-brand" href="{% url 'home' %}">Email Marketing</a>
                 <a class="nav-link" href="{% url 'recipient_list' %}">Получатели</a>
                 <a class="nav-link" href="{% url 'message_list' %}">Сообщения</a>
                 <a class="nav-link" href="{% url 'mailing_list' %}">Рассылки</a>
+                <a class="nav-link" href="{% url 'attempt_list' %}">Попытки</a>
             </div>
         </div>
     </nav>

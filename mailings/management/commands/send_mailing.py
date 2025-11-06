@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.conf import settings
 from mailings.models import MailingList, MailingAttempt
 
 
@@ -26,13 +27,13 @@ class Command(BaseCommand):
 
         for recipient in mailing.recipients.all():
             try:
-                num_sent = send_mail(
+                email = EmailMessage(
                     subject=message_obj.subject,
-                    message=message_obj.body,
-                    from_email=None,
-                    recipient_list=[recipient.email],
-                    fail_silently=False,
+                    body=message_obj.body,
+                    from_email=settings.EMAIL_HOST_USER,
+                    to=[recipient.email],
                 )
+                num_sent = email.send(fail_silently=False)
                 MailingAttempt.objects.create(
                     attempt_time=timezone.now(),
                     status='success' if num_sent > 0 else 'failed',

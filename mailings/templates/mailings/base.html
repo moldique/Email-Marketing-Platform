@@ -77,12 +77,13 @@
         <div class="container-fluid">
             <div class="navbar-nav d-flex flex-row w-100">
                 <div class="d-flex">
-                    <a class="navbar-brand" href="{% url 'home' %}">Email Marketing</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Email Marketing</a>
                     {% if user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'recipient_list' %}">Получатели</a>
-                        <a class="nav-link" href="{% url 'message_list' %}">Сообщения</a>
-                        <a class="nav-link" href="{% url 'mailing_list' %}">Рассылки</a>
-                        <a class="nav-link" href="{% url 'attempt_list' %}">Попытки</a>
+                <a class="nav-link" href="{% url 'recipient_list' %}">Получатели</a>
+                <a class="nav-link" href="{% url 'message_list' %}">Сообщения</a>
+                <a class="nav-link" href="{% url 'mailing_list' %}">Рассылки</a>
+                <a class="nav-link" href="{% url 'attempt_list' %}">Попытки</a>
+                        <a class="nav-link" href="{% url 'statistics' %}">Статистика</a>
                     {% endif %}
                 </div>
                 <div class="ms-auto d-flex">

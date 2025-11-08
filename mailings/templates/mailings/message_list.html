@@ -19,8 +19,11 @@
                 <td>{{ message.subject }}</td>
                 <td>{{ message.body|truncatewords:10 }}</td>
                 <td>
-                    <a href="{% url 'message_update' message.pk %}" class="btn btn-sm btn-outline-primary">Редактировать</a>
-                    <a href="{% url 'message_delete' message.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
+                    {% if message.owner == user %}
+                        <a href="{% url 'message_update' message.pk %}" class="btn btn-sm btn-outline-primary">Редактировать</a>
+                        <a href="{% url 'message_delete' message.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
+                    {% elif perms.mailings.view_all_messages %}
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

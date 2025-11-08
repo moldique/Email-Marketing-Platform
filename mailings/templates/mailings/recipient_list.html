@@ -21,8 +21,11 @@
                 <td>{{ recipient.full_name }}</td>                    
                 <td>{{ recipient.comment }}</td>
                 <td>
-                    <a href="{% url 'recipient_update' recipient.pk %}">Редактировать</a>
-                    <a href="{% url 'recipient_delete' recipient.pk %}">Удалить</a>
+                    {% if recipient.owner == user %}
+                        <a href="{% url 'recipient_update' recipient.pk %}">Редактировать</a>
+                        <a href="{% url 'recipient_delete' recipient.pk %}">Удалить</a>
+                    {% elif perms.mailings.view_all_recipients %}
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

@@ -1,0 +1,50 @@
+{% extends 'mailings/base.html' %}
+
+{% block title %}Статистика - Email Marketing Platform{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Статистика рассылок</h1>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ successful_attempts }}</h3>
+                        <p class="card-text">Успешных попыток</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card bg-danger text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ failed_attempts }}</h3>
+                        <p class="card-text">Неуспешных попыток</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ sent_messages }}</h3>
+                        <p class="card-text">Отправлено сообщений</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card bg-dark text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ total_attempts }}</h3>
+                        <p class="card-text">Всего попыток</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

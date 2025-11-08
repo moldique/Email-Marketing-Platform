@@ -1,0 +1,13 @@
+{% extends 'mailings/base.html' %}
+
+{% block title %}Удалить попытку рассылки{% endblock %}
+
+{% block content %}
+<h1>Удалить попытку рассылки</h1>
+<p>Вы уверены, что хотите удалить попытку рассылки "{{ attempt.mailing.message.subject }}" ({{ attempt.get_status_display }})?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Да, удалить</button>
+    <a href="{% url 'attempt_list' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

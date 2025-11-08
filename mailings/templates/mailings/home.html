@@ -1,0 +1,40 @@
+{% extends 'mailings/base.html' %}
+
+{% block title %}Главная страница - Email Marketing Platform{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Добро пожаловать в Email Marketing Platform</h1>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ total_mailings }}</h3>
+                        <p class="card-text">Всего рассылок</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ active_mailings }}</h3>
+                        <p class="card-text">Активных рассылок</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <div class="card-body text-center">
+                        <h3>{{ unique_recipients }}</h3>
+                        <p class="card-text">Уникальных получателей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
